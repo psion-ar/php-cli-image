@@ -57,8 +57,8 @@ return [
 
     'providers' => [
         \App\Providers\AppServiceProvider::class,
+        \App\Providers\ActionServiceProvider::class,
         \Intonate\TinkerZero\TinkerZeroServiceProvider::class,
-
     ],
 
 ];
