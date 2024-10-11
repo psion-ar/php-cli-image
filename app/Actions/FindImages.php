@@ -5,7 +5,7 @@ declare(strict_types=1);
 namespace App\Actions;
 
 use App\Contracts\Actions\FindsImages;
-use App\Exceptions\FileNotFound;
+use App\Exceptions\FileNotFoundException;
 
 class FindImages implements FindsImages
 {
@@ -22,7 +22,7 @@ class FindImages implements FindsImages
      * @param  string[]  $only
      * @return string[] All image paths in $path
      *
-     * @throws \App\Exceptions\FileNotFound
+     * @throws FileNotFoundException
      */
     public function __invoke(?string $path, array $only): array
     {
@@ -39,7 +39,7 @@ class FindImages implements FindsImages
             ->filter(is_image(...))
             ->all();
 
-        return $paths !== [] ? $paths : throw new FileNotFound(sprintf('No images found in "%s"', $this->path));
+        return $paths !== [] ? $paths : throw new FileNotFoundException(sprintf('No images found in "%s"', $this->path));
     }
 
     /**

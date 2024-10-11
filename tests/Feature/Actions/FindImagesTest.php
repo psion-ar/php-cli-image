@@ -4,7 +4,7 @@ declare(strict_types=1);
 
 use App\Contracts\Actions\FindsImages;
 use App\Enums\ImageFormat;
-use App\Exceptions\FileNotFound;
+use App\Exceptions\FileNotFoundException;
 use Illuminate\Support\Facades\File;
 
 describe('FindImagesTest', function (): void {
@@ -49,6 +49,6 @@ describe('FindImagesTest', function (): void {
         expect(File::isEmptyDirectory($tempDir))->toBeTrue();
 
         expect(fn () => app(FindsImages::class)(path: getTempPath(), only: []))
-            ->toThrow(FileNotFound::class);
+            ->toThrow(FileNotFoundException::class);
     });
 });
