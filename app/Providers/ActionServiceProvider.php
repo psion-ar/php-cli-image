@@ -4,11 +4,13 @@ declare(strict_types=1);
 
 namespace App\Providers;
 
-use App\Actions\FindImages;
 use App\Actions\SaveImage;
-use App\Contracts\Actions\FindsImages;
+use App\Actions\FindImages;
 use App\Contracts\Actions\SavesImage;
+use App\Contracts\Actions\FindsImages;
 use Illuminate\Support\ServiceProvider;
+use App\Actions\Forms\Components\SelectImages;
+use App\Contracts\Actions\Forms\Components\SelectsImages;
 
 class ActionServiceProvider extends ServiceProvider
 {
@@ -18,5 +20,6 @@ class ActionServiceProvider extends ServiceProvider
     public array $bindings = [
         FindsImages::class => FindImages::class,
         SavesImage::class => SaveImage::class,
+        SelectsImages::class => SelectImages::class,
     ];
 }
