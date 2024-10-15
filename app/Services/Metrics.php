@@ -5,11 +5,11 @@ declare(strict_types=1);
 namespace App\Services;
 
 use Closure;
-use Illuminate\Support\Str;
-use Webmozart\Assert\Assert;
-use InvalidArgumentException;
-use Illuminate\Support\Number;
 use Illuminate\Support\Benchmark;
+use Illuminate\Support\Number;
+use Illuminate\Support\Str;
+use InvalidArgumentException;
+use Webmozart\Assert\Assert;
 
 final class Metrics
 {
@@ -46,12 +46,12 @@ final class Metrics
 
     private function duration(): string
     {
-        return Number::format($this->milliseconds / 1000, 2) . ' s';
+        return Number::format($this->milliseconds / 1000, 2).' s';
     }
 
     private function average(): string
     {
-        return Number::format($this->milliseconds / $this->items / 1000, 2) . ' s';
+        return Number::format($this->milliseconds / $this->items / 1000, 2).' s';
     }
 
     private function benchmark(): void
