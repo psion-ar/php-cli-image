@@ -4,12 +4,12 @@ declare(strict_types=1);
 
 namespace App\Commands;
 
-use App\DTOs\Request;
-use App\Enums\ImageFormat;
-use App\Contracts\Actions\FindsImages;
-use App\Commands\Traits\HandlesValidation;
 use App\Actions\Forms\RenderResizeAxisForm;
 use App\Actions\Handler\HandleResizeAxis;
+use App\Commands\Traits\HandlesValidation;
+use App\Contracts\Actions\FindsImages;
+use App\DTOs\Request;
+use App\Enums\ImageFormat;
 use LaravelZero\Framework\Commands\Command;
 
 use function Laravel\Prompts\error;
@@ -79,6 +79,7 @@ class ResizeAxisCommand extends Command
             info($metrics->get());
         } catch (\Exception $e) {
             error($error = $e->getMessage());
+
             return self::FAILURE;
         }
 

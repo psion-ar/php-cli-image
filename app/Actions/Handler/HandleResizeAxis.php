@@ -4,11 +4,11 @@ declare(strict_types=1);
 
 namespace App\Actions\Handler;
 
+use App\Contracts\Actions\SavesImage;
 use App\DTOs\Request;
+use App\Services\Metrics;
 use ReflectionMethod;
 use Spatie\Image\Image;
-use App\Services\Metrics;
-use App\Contracts\Actions\SavesImage;
 
 use function Laravel\Prompts\progress;
 

@@ -4,15 +4,15 @@ declare(strict_types=1);
 
 namespace App\Actions\Forms;
 
+use App\Contracts\Actions\Forms\Components\SelectsImages;
+use Illuminate\Support\LazyCollection;
 use ReflectionMethod;
 use Spatie\Image\Image;
 use Webmozart\Assert\Assert;
-use Illuminate\Support\LazyCollection;
-use App\Contracts\Actions\Forms\Components\SelectsImages;
 
 use function Laravel\Prompts\form;
-use function Laravel\Prompts\text;
 use function Laravel\Prompts\select;
+use function Laravel\Prompts\text;
 
 final class RenderResizeAxisForm
 {

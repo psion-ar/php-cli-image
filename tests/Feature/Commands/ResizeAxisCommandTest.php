@@ -2,8 +2,8 @@
 
 declare(strict_types=1);
 
-use Spatie\Image\Image;
 use App\Commands\ResizeAxisCommand;
+use Spatie\Image\Image;
 
 describe('Argument validation', function () {
     test('path must be valid')
@@ -34,7 +34,7 @@ describe('ResizeAxisCommandTest', function () {
         expect($actualWidth)->toBe(340);
 
         // temp path contains only one file so prompt is skipped
-        $this->artisan(ResizeAxisCommand::class, [ 'path' => getTempPath('test.jpg'), ])
+        $this->artisan(ResizeAxisCommand::class, ['path' => getTempPath('test.jpg')])
             ->expectsQuestion('Select the axis to resize', 'width')
             ->expectsQuestion('Enter the Width value', '200')
             ->expectsOutputToContain('[Duration:]')
@@ -54,7 +54,7 @@ describe('ResizeAxisCommandTest', function () {
         expect($actualHeight)->toBe(280);
 
         // temp path contains only one file so prompt is skipped
-        $this->artisan(ResizeAxisCommand::class, [ 'path' => getTempPath('test.jpg'), ])
+        $this->artisan(ResizeAxisCommand::class, ['path' => getTempPath('test.jpg')])
             ->expectsQuestion('Select the axis to resize', 'height')
             ->expectsQuestion('Enter the Height value', '200')
             ->expectsOutputToContain('[Duration:]')
@@ -72,7 +72,7 @@ describe('ResizeAxisCommandTest', function () {
         // act & assert
         $actualAspectRatio = (string) Image::load(getTempPath('test.jpg'))->getSize()->aspectRatio();
 
-        $this->artisan(ResizeAxisCommand::class, [ 'path' => getTempPath('test.jpg'), ])
+        $this->artisan(ResizeAxisCommand::class, ['path' => getTempPath('test.jpg')])
             ->expectsQuestion('Select the axis to resize', 'width')
             ->expectsQuestion('Enter the Width value', '200')
             ->expectsOutputToContain('[Duration:]')
