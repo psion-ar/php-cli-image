@@ -12,6 +12,7 @@ use App\DTOs\Request;
 use App\Enums\ImageFormat;
 use LaravelZero\Framework\Commands\Command;
 
+use function Laravel\Prompts\error;
 use function Laravel\Prompts\info;
 use function Laravel\Prompts\warning;
 
@@ -57,24 +58,29 @@ class ResizeFitCommand extends Command
 
         ['path' => $path, 'format' => $format, 'only' => $only] = $validator->validated();
 
-        // Find images
-        $paths = $finder($path, $only);
+        try {
+            // Find images
+            $paths = $finder($path, $only);
 
-        // Render form
-        $response = $form($paths, $this->option('all'));
+            // Render form
+            $response = $form($paths, $this->option('all'));
 
-        $request = Request::create([
-            'command' => $this->argument('command'),
-            'target' => $this->option('target'),
-            'format' => $format ? ImageFormat::from($format) : null,
-            ...$response,
-        ]);
+            $request = Request::create([
+                'command' => $this->argument('command'),
+                'target' => $this->option('target'),
+                'format' => $format ? ImageFormat::from($format) : null,
+                ...$response,
+            ]);
 
-        // Handle effects
-        $metrics = $handleResize($request);
+            // Handle effects
+            $metrics = $handleResize($request);
 
-        // Display metrics
-        info($metrics->get());
+            // Display metrics
+            info($metrics->get());
+        } catch (\Exception $e) {
+            error($e->getMessage());
+            return self::FAILURE;
+        }
 
         return self::SUCCESS;
     }
