@@ -79,6 +79,7 @@ class ResizeFitCommand extends Command
             info($metrics->get());
         } catch (\Exception $e) {
             error($e->getMessage());
+
             return self::FAILURE;
         }
 
