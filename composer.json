@@ -1,13 +1,12 @@
 {
-    "name": "laravel-zero/laravel-zero",
-    "description": "The Laravel Zero Framework.",
-    "keywords": ["framework", "laravel", "laravel zero", "console", "cli"],
-    "homepage": "https://laravel-zero.com",
+    "name": "psion-ar/php-cli-image",
+    "description": "PHP CLI image processing.",
+    "keywords": ["php", "cli", "image"],
     "type": "project",
     "license": "MIT",
     "support": {
-        "issues": "https://github.com/laravel-zero/laravel-zero/issues",
-        "source": "https://github.com/laravel-zero/laravel-zero"
+        "issues": "https://github.com/psion-ar/php-cli-image/issues",
+        "source": "https://github.com/psion-ar/php-cli-image"
     },
     "authors": [
         {
