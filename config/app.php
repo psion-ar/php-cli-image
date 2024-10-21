@@ -60,7 +60,6 @@ return [
         \App\Providers\ActionServiceProvider::class,
         \Illuminate\Validation\ValidationServiceProvider::class,
         \Illuminate\Translation\TranslationServiceProvider::class,
-        \Intonate\TinkerZero\TinkerZeroServiceProvider::class,
     ],
 
 ];
