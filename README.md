@@ -5,3 +5,11 @@
 ------
 
 ### php cli image processing
+
+Just a wrapper around spatie's image package.
+
+### credits
+
+- [laravel-zero/laravel-zero](https://github.com/laravel-zero/laravel-zero)
+- [spatie/image](https://github.com/spatie/image)
+- [laravel/prompts](https://github.com/laravel/prompts)
